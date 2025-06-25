@@ -7,7 +7,7 @@ Sebuah aplikasi web interaktif yang dibangun untuk memprediksi risiko diabetes p
 ---
 
 ### 🔗 Link Penting
-- **Aplikasi Live:** `[LINK_STREAMLIT_CLOUD_ANDA SETELAH DEPLOY]`
+- **Aplikasi Live:** https://prediksi-diabetes-app.streamlit.app/
 - **Repositori Kode:** `https://github.com/kemales/prediksi-diabetes-streamlit`https://github.com/kemales/prediksi-diabetes-streamlit
 
 ---
