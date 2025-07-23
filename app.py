@@ -11,7 +11,7 @@ import numpy as np
 # PENTING: st.set_page_config() harus menjadi perintah Streamlit pertama.
 st.set_page_config(
     page_title="Prediksi Risiko Diabetes",
-    page_icon="�",
+    page_icon="🩺",
     layout="centered",
     initial_sidebar_state="auto"
 )
@@ -105,19 +105,14 @@ else:
         
         # 4. Lakukan prediksi menggunakan DataFrame yang sudah punya nama kolom
         prediction = final_model.predict(input_scaled_df)
-        prediction_proba = final_model.predict_proba(input_scaled_df)
         
         # 5. Tampilkan hasil prediksi
         st.subheader('Hasil Prediksi:')
         
         if prediction[0] == 0:
             st.success('**Risiko Rendah (Tidak Terdeteksi Diabetes)**')
-            st.write(f"Berdasarkan data yang dimasukkan, model memprediksi Anda memiliki risiko rendah untuk terdeteksi diabetes.")
-            st.metric(label="Tingkat Kepercayaan (Non-Diabetes)", value=f"{prediction_proba[0][0]*100:.2f}%")
         else:
             st.error('**Risiko Tinggi (Terdeteksi Diabetes)**')
-            st.write(f"Berdasarkan data yang dimasukkan, model memprediksi Anda memiliki risiko tinggi untuk terdeteksi diabetes. Disarankan untuk berkonsultasi dengan tenaga medis.")
-            st.metric(label="Tingkat Kepercayaan (Diabetes)", value=f"{prediction_proba[0][1]*100:.2f}%", delta_color="inverse")
 
 # Menambahkan footer
 st.markdown("---")
