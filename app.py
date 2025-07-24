@@ -66,7 +66,7 @@ else:
             input_data[feature] = st.number_input(
                 label=f'{feature}',
                 min_value=0.0,
-                max_value=1.0,  # <-- Batas atas diatur ke 1.0
+                max_value=1.5,  # <-- Batas atas diatur ke 1.0
                 step=0.01,
                 format="%.3f"
             )
@@ -111,8 +111,10 @@ else:
         
         if prediction[0] == 0:
             st.success('**Risiko Rendah (Tidak Terdeteksi Diabetes)**')
+            st.write(f"Berdasarkan data yang dimasukkan, model memprediksi Anda memiliki risiko rendah untuk terdeteksi diabetes.")
         else:
             st.error('**Risiko Tinggi (Terdeteksi Diabetes)**')
+            st.write(f"Berdasarkan data yang dimasukkan, model memprediksi Anda memiliki risiko tinggi untuk terdeteksi diabetes. Disarankan untuk berkonsultasi dengan tenaga medis.")
 
 # Menambahkan footer
 st.markdown("---")
