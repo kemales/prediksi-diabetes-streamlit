@@ -52,7 +52,16 @@ else:
         feature_names = final_model.feature_names_in_
     except AttributeError:
         st.warning("Tidak dapat mendeteksi nama fitur dari model. Menggunakan daftar manual.")
-        feature_names = ['Glucose', 'BMI', 'Age', 'BloodPressure', 'DiabetesPedigreeFunction'] # GANTI JIKA PERLU
+        feature_names = ['Glucose', 'BMI', 'Age', 'BloodPressure', 'DiabetesPedigreeFunction']
+    
+    # Kamus untuk label yang lebih ramah pengguna
+    feature_labels = {
+        'Glucose': 'Kadar Glukosa (mg/dL)',
+        'BMI': 'Indeks Massa Tubuh (IMT)',
+        'Age': 'Usia (Tahun)',
+        'BloodPressure': 'Tekanan Darah Diastolik (mm Hg)',
+        'DiabetesPedigreeFunction': 'Skor Riwayat Diabetes Keluarga'
+    }
 
     col1, col2 = st.columns(2)
     input_data = {}
@@ -61,6 +70,7 @@ else:
     
     # Fungsi untuk membuat input field dengan validasi
     def create_input(feature):
+        placeholder_text = "Masukkan nilai..."
         # Kondisi khusus untuk membatasi input DiabetesPedigreeFunction
         if feature == 'DiabetesPedigreeFunction':
             input_data[feature] = st.number_input(
